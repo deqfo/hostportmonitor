@@ -2,18 +2,24 @@ import json
 import os
 import socket
 import time
-from datetime import datetime, UTC
+from datetime import UTC, datetime
 
 config_path = "data/config.json"
 history_path = "data/history.json"
+template_path = "src/template.html"
+output_dir = "site"
+output_html = "src/index.html"
 
 with open(config_path, "r", encoding="utf-8") as f:
     targets = json.load(f)
 
 history = {}
 if os.path.exists(history_path):
-    with open(history_path, "r", encoding="utf-8") as f:
-        history = json.load(f)
+    try:
+        with open(history_path, "r", encoding="utf-8") as f:
+            history = json.load(f)
+    except json.JSONDecodeError:
+        history = {}
 
 
 def check_target_availability(host, port, timeout=2.0):
@@ -33,7 +39,7 @@ def calculate_uptime(target_history):
 
 
 now_utc = datetime.now(UTC).isoformat()
-
+table_rows = ""
 
 for target in targets:
     is_online, latency = check_target_availability(
@@ -55,5 +61,29 @@ for target in targets:
         f"- {latency} ms / Uptime: {uptime}%"
     )
 
+    status_class = "online" if is_online else "offline"
+    status_text = "Online" if is_online else "Offline"
+
+    table_rows += f"""
+        <tr>
+            <td><strong>{target["name"]}</strong></td>
+            <td><code>{target_key}</code></td>
+            <td><span class="status-badge {status_class}">{status_text}</span></td>
+            <td>{latency} ms</td>
+            <td>{uptime}%</td>
+        </tr>
+    """
+
 with open(history_path, "w", encoding="utf-8") as f:
     json.dump(history, f, indent=2, ensure_ascii=False)
+
+with open(template_path, "r", encoding="utf-8") as f:
+    template = f.read()
+
+rendered_html = template.replace("{last_updated}", now_utc).replace(
+    "{table_rows}", table_rows
+)
+
+os.makedirs(output_dir, exist_ok=True)
+with open(output_html, "w", encoding="utf-8") as f:
+    f.write(rendered_html)
