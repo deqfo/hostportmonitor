@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Google DNS",
+    "host": "8.8.8.8",
+    "port": 53,
+    "timeout": 2
+  },
+  {
+    "name": "Google Web",
+    "host": "google.com",
+    "port": 80,
+    "timeout": 3
+  }
+]
