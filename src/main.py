@@ -6,9 +6,9 @@ from datetime import UTC, datetime
 
 config_path = "data/config.json"
 history_path = "data/history.json"
-template_path = "src/template.html"
+template_path = "site/template.html"
 output_dir = "site"
-output_html = "src/index.html"
+output_html = "site/index.html"
 
 with open(config_path, "r", encoding="utf-8") as f:
     targets = json.load(f)
