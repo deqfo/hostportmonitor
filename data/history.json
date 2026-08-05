@@ -79,6 +79,21 @@
       "timestamp": "2026-08-04T10:25:29.502531+00:00",
       "is_online": true,
       "latency_ms": 51.77
+    },
+    {
+      "timestamp": "2026-08-05T07:30:33.229838+00:00",
+      "is_online": true,
+      "latency_ms": 124.97
+    },
+    {
+      "timestamp": "2026-08-05T07:35:27.466062+00:00",
+      "is_online": true,
+      "latency_ms": 162.91
+    },
+    {
+      "timestamp": "2026-08-05T07:38:31.970498+00:00",
+      "is_online": true,
+      "latency_ms": 41.63
     }
   ],
   "google.com:80": [
@@ -161,6 +176,21 @@
       "timestamp": "2026-08-04T10:25:29.502531+00:00",
       "is_online": true,
       "latency_ms": 86.63
+    },
+    {
+      "timestamp": "2026-08-05T07:30:33.229838+00:00",
+      "is_online": true,
+      "latency_ms": 73.54
+    },
+    {
+      "timestamp": "2026-08-05T07:35:27.466062+00:00",
+      "is_online": true,
+      "latency_ms": 154.71
+    },
+    {
+      "timestamp": "2026-08-05T07:38:31.970498+00:00",
+      "is_online": true,
+      "latency_ms": 59.43
     }
   ]
 }
