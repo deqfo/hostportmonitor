@@ -189,6 +189,11 @@
       "timestamp": "2026-09-07T10:52:20.685220+00:00",
       "is_online": true,
       "latency_ms": 29.31
+    },
+    {
+      "timestamp": "2026-09-07T16:09:22.066769+00:00",
+      "is_online": true,
+      "latency_ms": 21.01
     }
   ],
   "google.com:80": [
@@ -381,6 +386,11 @@
       "timestamp": "2026-09-07T10:52:20.685220+00:00",
       "is_online": true,
       "latency_ms": 11.45
+    },
+    {
+      "timestamp": "2026-09-07T16:09:22.066769+00:00",
+      "is_online": true,
+      "latency_ms": 4.25
     }
   ]
 }
